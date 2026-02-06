@@ -1,0 +1,41 @@
+{
+    "created_time": "2020-04-10T23:27:41Z",
+    "files": [
+        {
+            "attachment_folder": "",
+            "created_time": "2020-04-10T23:28:12Z",
+            "id": "39",
+            "modified_time": "2024-04-08T02:05:09Z",
+            "name": "设备树操作常用API.md",
+            "signature": "5463993087105352799",
+            "tags": [
+            ]
+        },
+        {
+            "attachment_folder": "",
+            "created_time": "2020-04-10T23:35:09Z",
+            "id": "40",
+            "modified_time": "2020-04-10T23:35:09Z",
+            "name": "设备树语法详解.md",
+            "signature": "863583513903547487",
+            "tags": [
+            ]
+        },
+        {
+            "attachment_folder": "",
+            "created_time": "2020-04-11T00:03:19Z",
+            "id": "41",
+            "modified_time": "2020-04-11T00:03:19Z",
+            "name": "驱动调试技巧点滴.md",
+            "signature": "5621503432068875359",
+            "tags": [
+            ]
+        }
+    ],
+    "folders": [
+    ],
+    "id": "38",
+    "modified_time": "2023-03-22T09:03:27Z",
+    "signature": "5020030538285237343",
+    "version": 3
+}

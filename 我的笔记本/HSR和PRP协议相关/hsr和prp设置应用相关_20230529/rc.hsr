@@ -1,0 +1,64 @@
+#!/bin/sh
+
+#----------------------------------------------------------------------------
+#	Get macro define from /usr/local/sanway/ini/system.ini
+#----------------------------------------------------------------------------
+CONF_DIR=/usr/local
+CONF_MAC=$CONF_DIR/sanway/mac_addr.ini
+CONF=$CONF_DIR/sanway/ini/system.ini
+SECTION_APP=APP_SET
+SECTION_ETH=ETH_SET
+SECTION_MAC=MAC_SET
+SECTION_TCU=TCU_SET
+
+ETH0=eth0
+ETH1=eth1
+HSR_NAME=hsr0
+HSR_TYPE=hsr
+HSR_SUPERVISION=45
+HSR_VERSION=1
+
+INFO=`cat $CONF \
+ | grep -v ^$ \
+ | sed -n "s/\s\+//;/\[${SECTION_APP}\]/,/^\[/p" \
+ | grep -v ^'\[' ` && eval "$INFO"
+
+
+INFO=`cat $CONF \
+ | grep -v ^$ \
+ | sed -n "s/\s\+//;/\[${SECTION_ETH}\]/,/^\[/p" \
+ | grep -v ^'\[' ` && eval "$INFO"
+ 
+INFO=`cat $CONF_MAC \
+ | grep -v ^$ \
+ | sed -n "s/\s\+//;/\[${SECTION_MAC}\]/,/^\[/p" \
+ | grep -v ^'\[' ` && eval "$INFO"
+
+#----------------------------------------------------------------------------
+#	Shell start here
+#----------------------------------------------------------------------------
+ifconfig $ETH0 0.0.0.0 down
+ifconfig $ETH1 0.0.0.0 down
+		
+echo Setting $ETH0 MAC address to $MAC_ADDR0
+ifconfig $ETH0 hw ether $MAC_ADDR0
+
+echo Setting $ETH1 MAC address to $MAC_ADDR0
+ifconfig $ETH1 hw ether $MAC_ADDR0
+
+ifconfig $ETH0 up
+ifconfig $ETH1 up
+
+ethtool -s $ETH0 speed 100 duplex full autoneg off
+ethtool -s $ETH1 speed 100 duplex full autoneg off
+
+echo Setting $HSR_TYPE, name: $HSR_NAME, slave1: $ETH0, slave2: $ETH1, supervision: $HSR_SUPERVISION, version: $HSR_VERSION
+ip link add name $HSR_NAME type $HSR_TYPE slave1 $ETH0 slave2 $ETH1 supervision $HSR_SUPERVISION version $HSR_VERSION
+
+echo Setting $HSR_NAME IP address to $IP_ADDR0
+ifconfig $HSR_NAME $IP_ADDR0
+
+#sleep 1
+
+#echo 1 > /proc/hsr0/clear-nt
+#cat /proc/hsr0/node-table

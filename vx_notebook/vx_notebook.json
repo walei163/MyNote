@@ -1,0 +1,15 @@
+{
+    "attachment_folder": "_v_attachments",
+    "config_mgr": "vx.vnotex",
+    "created_time": "2020-04-01T07:33:07Z",
+    "description": "",
+    "extra_configs": {
+    },
+    "history": [
+    ],
+    "image_folder": "vx_images",
+    "name": "VNote笔记本_20200401",
+    "tag_graph": "",
+    "version": 3,
+    "version_controller": "dummy.vnotex"
+}

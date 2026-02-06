@@ -1,0 +1,51 @@
+*** Begin Patch
+*** Update File: scripts/kconfig/lxdialog/check-lxdialog.sh
+@@
+ check() {
+-        $cc -x c - -o $tmp 2>/dev/null <<'EOF'
+-#include CURSES_LOC
+-main() {}
+-EOF
+-    if [ $? != 0 ]; then
+-        echo " *** Unable to find the ncurses libraries or the"       1>&2
+-        echo " *** required header files."                            1>&2
+-        echo " *** 'make menuconfig' requires the ncurses libraries." 1>&2
+-        echo " *** "                                                  1>&2
+-        echo " *** Install ncurses (ncurses-devel) and try again."    1>&2
+-        echo " *** "                                                  1>&2
+-        exit 1
+-    fi
++    # Split the compiler+flags string into positional parameters so we
++    # can exec the compiler directly without re-parsing via sh -c.
++    oldifs="$IFS"
++    IFS=' '
++    set -- $cc
++    IFS="$oldifs"
++
++    # Try a few likely header names by creating a temp C file that
++    # directly includes the header. This avoids passing '<...>' to
++    # the shell in compiler flags which can be misinterpreted as
++    # redirection on some /bin/sh implementations.
++    for hdr in "<ncursesw/curses.h>" "<ncurses.h>" "<curses.h>"; do
++        cat > ${tmp}.c <<EOF
++#include $hdr
++int main(void) { return 0; }
++EOF
++        "$@" -x c ${tmp}.c -o $tmp 2>/dev/null
++        ret=$?
++        rm -f ${tmp}.c
++        if [ $ret -eq 0 ]; then
++            break
++        fi
++    done
++    if [ $ret != 0 ]; then
++        echo " *** Unable to find the ncurses libraries or the"       1>&2
++        echo " *** required header files."                            1>&2
++        echo " *** 'make menuconfig' requires the ncurses libraries." 1>&2
++        echo " *** "                                                  1>&2
++        echo " *** Install ncurses (ncurses-devel) and try again."    1>&2
++        echo " *** "                                                  1>&2
++        exit 1
++    fi
+ }
+*** End Patch

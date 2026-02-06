@@ -1,0 +1,56 @@
+#!/bin/sh
+
+#----------------------------------------------------------------------------
+#	Get macro define from /usr/local/sanway/ini/system.ini
+#----------------------------------------------------------------------------
+CONF_DIR=/usr/local
+CONF_MAC=$CONF_DIR/sanway/mac_addr.ini
+CONF=$CONF_DIR/sanway/ini/system.ini
+SECTION_APP=APP_SET
+SECTION_ETH=ETH_SET
+SECTION_MAC=MAC_SET
+SECTION_TCU=TCU_SET
+
+ETH0=eth0
+ETH1=eth1
+PRP_NAME=prp0
+PRP_TYPE=hsr
+PRP_SUPERVISION=45
+PRP_PROTO=1
+
+INFO=`cat $CONF \
+ | grep -v ^$ \
+ | sed -n "s/\s\+//;/\[${SECTION_APP}\]/,/^\[/p" \
+ | grep -v ^'\[' ` && eval "$INFO"
+
+
+INFO=`cat $CONF \
+ | grep -v ^$ \
+ | sed -n "s/\s\+//;/\[${SECTION_ETH}\]/,/^\[/p" \
+ | grep -v ^'\[' ` && eval "$INFO"
+ 
+INFO=`cat $CONF_MAC \
+ | grep -v ^$ \
+ | sed -n "s/\s\+//;/\[${SECTION_MAC}\]/,/^\[/p" \
+ | grep -v ^'\[' ` && eval "$INFO"
+
+#----------------------------------------------------------------------------
+#	Shell start here
+#----------------------------------------------------------------------------
+ifconfig $ETH0 0.0.0.0 down
+ifconfig $ETH1 0.0.0.0 down
+		
+echo Setting $ETH0 MAC address to $MAC_ADDR0
+ifconfig $ETH0 hw ether $MAC_ADDR0
+
+echo Setting $ETH1 MAC address to $MAC_ADDR0
+ifconfig $ETH1 hw ether $MAC_ADDR0
+
+ifconfig $ETH0 up
+ifconfig $ETH1 up
+
+echo Setting $PRP_TYPE, name: $PRP_NAME, slave1: $ETH0, slave2: $ETH1, supervision: $PRP_SUPERVISION
+ip link add name $PRP_NAME type $PRP_TYPE slave1 $ETH0 slave2 $ETH1 supervision $PRP_SUPERVISION proto $PRP_PROTO
+
+echo Setting $PRP_NAME IP address to $IP_ADDR0
+ifconfig $PRP_NAME $IP_ADDR0

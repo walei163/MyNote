@@ -1,0 +1,187 @@
+{
+  "main": {
+    "id": "0d63402164d113ee",
+    "type": "split",
+    "children": [
+      {
+        "id": "57992189e6dcf9d9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6bba92e0d6cb271d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "我的笔记本/AM335x/AM335x解决网络压力测试的问题_20240419.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "37b4d281f8571ecb",
+    "type": "split",
+    "children": [
+      {
+        "id": "fa6f30c0fd9ce939",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0e19f367ce1e51db",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "7185ea8432442f90",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "edid",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "cb80bc95a6b275ec",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          },
+          {
+            "id": "62b0e7daee3aa7ce",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 352
+  },
+  "right": {
+    "id": "cde77cae0a024da3",
+    "type": "split",
+    "children": [
+      {
+        "id": "0245b44120514c93",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "371691b7bd7dd321",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "我的笔记本/AM335x/AM335x解决网络压力测试的问题_20240419.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "52d2f474aebb6f03",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "我的笔记本/AM335x/AM335x解决网络压力测试的问题_20240419.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "28007f8513735e32",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "25fdfe19885de51c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "我的笔记本/AM335x/AM335x解决网络压力测试的问题_20240419.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 297
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "zk-prefixer:创建时间戳笔记": false,
+      "workspaces:管理工作区布局": false,
+      "publish:发布更改": false
+    }
+  },
+  "active": "6bba92e0d6cb271d",
+  "lastOpenFiles": [
+    "我的笔记本/docker相关/docker相关.md",
+    "我的笔记本/Typara免费激活的方法.md",
+    "我的笔记本/MARKDOWN进阶.md",
+    "我的笔记本/MARKDOWN基本语法.md",
+    "Pasted image 20240501181219.png",
+    "图片地址.md",
+    "我的笔记本/docker相关/Docker Exec 命令详解与实践指南.md",
+    "我的笔记本/OpenSUSE相关/Linux文件系统之btrfs.md",
+    "我的笔记本/OpenSUSE相关/btrfs文件系统相关.md",
+    "我的笔记本/OpenSUSE相关/安装与设置.md",
+    "我的笔记本/OpenSUSE相关/Btrfs 详解：快照(Linux 中国).md",
+    "我的笔记本/Linux应用相关/嵌入式Linux添加开机启动logo和进度条.md",
+    "我的笔记本/Linux应用相关/常见的15个shell脚本案例.md",
+    "我的VNOTE笔记本/Btrfs 详解：快照(Linux 中国).md",
+    "我的VNOTE笔记本/RK3568相关/SW3568内核kernel启动显示logo制作脚本使用说明.md",
+    "我的日记/2022-11-11：珠海万力达：WLD-8610-2210调试记录.md",
+    "我的日记/2022-10-17：基本Markdown语法示例.md",
+    "我的日记/2022-12-02：珠海万力达：Zhuhai_WanLiDa_WLD-8610-2208_V1.00_20221201调试记录.md",
+    "我的日记/2022-12-07：珠海万力达：FUXI伏羲板卡修正SPI读写南网加密芯片的BUG.md",
+    "我的VNOTE笔记本/MARKDOWN进阶.md",
+    "我的VNOTE笔记本/MARKDOWN基本语法.md",
+    "我的VNOTE笔记本/Linux应用相关/libmodbus库相关资料.md",
+    "我的VNOTE笔记本/Linux应用相关/NEMA库和相关资料简要说明.md",
+    "libmodbus-3.1.10.tar.gz"
+  ]
+}
